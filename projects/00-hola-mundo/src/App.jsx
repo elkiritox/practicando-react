@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { TwitterFollowCard } from './TwitterFollowCard';
 
 function App() {
-  const [count, setCount] = useState(0)
+    
+    //const formatUsername = (userName) => `@${userName}`
+    const naruto = {isFollowing:true,userName:"naruto"}
+    return(
+        //<> es igual a <React.Fragment>
+       /* <section className='App'>
+        <TwitterFollowCard formatUsername={formatUsername} isFollowing userName="kirito" name="Kazuto Kirigaya" />
+        <TwitterFollowCard formatUsername={formatUsername} isFollowing={false} userName="asuna" name="Asuna Kirigaya" />
+        <TwitterFollowCard formatUsername={formatUsername} isFollowing userName="naruto" name="Uzumaki Naruto" />
+        </section>
+        */
+       <>
+        <TwitterFollowCard  isFollowing userName="kirito" >
+        Kazuto Kirigaya
+        Sasuke
+        sAKURA
+        </TwitterFollowCard>
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+        <TwitterFollowCard  isFollowing={false} userName="asuna"  >
+        Asuna Kirigaya
+        </TwitterFollowCard>
+        
+        <TwitterFollowCard  {... naruto}  >
+        Uzumaki Naruto
+        </TwitterFollowCard>
+        </>
+    )
 }
-
 export default App
