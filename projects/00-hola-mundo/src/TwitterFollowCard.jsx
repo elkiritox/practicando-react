@@ -1,5 +1,20 @@
-export function TwitterFollowCard({children, userName='unknown',name,isFollowing}) {
+import { useState } from "react";
+
+export function TwitterFollowCard({children, userName='unknown'}, initialIsFollowing='false') {
+  
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
+  /* es igual a */
+ /* const state = useState(false);
+  const isFollowing= state[0];
+  const setIsFollowing = state[1];
+*/
+  const text = isFollowing ? 'Siguiendo':'Seguir';
+  const className= isFollowing ? 'kr-tw-followcard-button is-following': 'kr-tw-followcard-button' 
   console.log(isFollowing)
+
+  const handleClick = () => {
+    setIsFollowing(!isFollowing);
+ }
   //userName =`@${userName}` // esto es mala practica ya que no se debería modificar una prop
     return (
         <article className="kr-tw-followcard">
@@ -18,9 +33,11 @@ export function TwitterFollowCard({children, userName='unknown',name,isFollowing
           </div>
         </header>
         <aside>
-            <button className="kr-tw-followcard-button">
-              Follow
+            <button className={className} onClick={handleClick}>
+              <span className="kr-tw-followcard-text"> {text}</span>
+              <span className="kr-tw-followcard-stopFollow">Dejar de Seguir </span>
             </button>
+            
         </aside>
        </article>
     )

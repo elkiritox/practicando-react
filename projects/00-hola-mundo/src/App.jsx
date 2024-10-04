@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import './App.css';
 import { TwitterFollowCard } from './TwitterFollowCard';
+
+
 
 function App() {
     
     //const formatUsername = (userName) => `@${userName}`
-    const naruto = {isFollowing:true,userName:"naruto"}
+    const naruto = { userName:"naruto"}
+    
+    //const [name, setName] = useState('kirito')
     return(
         //<> es igual a <React.Fragment>
        /* <section className='App'>
@@ -14,20 +19,23 @@ function App() {
         </section>
         */
        <>
-        <TwitterFollowCard  isFollowing userName="kirito" >
+        <TwitterFollowCard   userName='kirito'  >
         Kazuto Kirigaya
         Sasuke
-        sAKURA
+        SAKURA
         </TwitterFollowCard>
 
-        <TwitterFollowCard  isFollowing={false} userName="asuna"  >
+        <TwitterFollowCard   userName="asuna"  >
         Asuna Kirigaya
         </TwitterFollowCard>
         
         <TwitterFollowCard  {... naruto}  >
         Uzumaki Naruto
         </TwitterFollowCard>
+
+        
         </>
+       
     )
 }
 export default App
