@@ -57,6 +57,7 @@ function App() {
             initialIsFollowing={isFollowing}
         >{name}
         </TwitterFollowCard>
+        
             ))
         }
         {
